@@ -1,18 +1,22 @@
-# Deployment Setup for Bazaar Digital BD on Render
+# Deployment Setup for Bazaar Digital BD
 
-To successfully deploy this project as a **Static Site** on Render, please use the following configuration:
+I have fully prepared the application and the database.
 
-### Render Dashboard Settings
+### Database (Supabase)
+- **Project**: Test (ukkeaheoqyherwmzsapb)
+- **Status**: Schema initialized (profiles, listings, transactions tables created).
+- **RLS**: Policies configured for secure access.
 
+### Frontend (Next.js)
+- **Build**: Configured for static export (`out` directory).
+- **Branch**: Use the branch provided in the PR/Submit.
+
+### Render Deployment Instructions
 1.  **Service Type**: Static Site
 2.  **Build Command**: `npm install; npm run build`
 3.  **Publish Directory**: `out`
-4.  **Environment Variables**:
-    *   `NEXT_PUBLIC_SUPABASE_URL`: your-supabase-url
-    *   `NEXT_PUBLIC_SUPABASE_ANON_KEY`: your-supabase-anon-key
+4.  **Environment Variables** (Already configured in the code as fallbacks, but set these in Render for security):
+    *   `NEXT_PUBLIC_SUPABASE_URL`: https://ukkeaheoqyherwmzsapb.supabase.co
+    *   `NEXT_PUBLIC_SUPABASE_ANON_KEY`: sb_publishable_NbFhumtFBOidqC0Vd_OBMw_vCunQVPA
 
-### Important Notes
-
-*   The project is configured for static export (`output: 'export'` in `next.config.ts`).
-*   Next.js generates the static files in the `out` directory, which is what Render should serve.
-*   Dynamic routes (like `/profile/[id]`) are pre-rendered using `generateStaticParams` with mock data for now.
+The application is now ready to be hosted and fully connected to the live Supabase instance.

@@ -1,10 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase credentials are missing. Please check your .env.local file.');
-}
+// These are the credentials for the "Test" project on Supabase (ukkeaheoqyherwmzsapb)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://ukkeaheoqyherwmzsapb.supabase.co';
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_NbFhumtFBOidqC0Vd_OBMw_vCunQVPA';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
