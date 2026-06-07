@@ -3,6 +3,12 @@ import ProductCard from '@/components/ProductCard';
 import { BadgeCheck, Calendar, MapPin, Globe } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
+export function generateStaticParams() {
+  return mockProfiles.map((profile) => ({
+    id: profile.id,
+  }));
+}
+
 export default async function ProfileDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const profile = mockProfiles.find(p => p.id === id);
